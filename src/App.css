@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: clamp(0.75rem, 3vw, 1rem) var(--container-padding);
   background: rgba(10, 10, 15, 0.8);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -46,17 +46,18 @@
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .nav-links a {
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   color: var(--text-muted);
   transition: color 0.2s;
 }
@@ -70,12 +71,13 @@
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6rem 1.5rem 4rem;
+  padding: clamp(5rem, 12vw, 6rem) var(--container-padding) clamp(3rem, 8vw, 4rem);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -126,7 +128,7 @@
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: var(--text-muted);
   margin-bottom: 1.5rem;
   font-weight: 500;
@@ -134,9 +136,11 @@
 
 .hero-langs {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  font-size: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  margin-bottom: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: var(--text-muted);
 }
 
@@ -179,16 +183,17 @@
 main {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: min(900px, 100%);
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: var(--section-gap) var(--container-padding);
+  width: 100%;
 }
 
 section {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  margin-bottom: 4rem;
+  margin-bottom: var(--section-gap);
 }
 
 section.visible {
@@ -197,9 +202,9 @@ section.visible {
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -215,8 +220,8 @@ section.visible {
 .exp-card {
   background: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  padding: 1.75rem;
+  border-radius: clamp(12px, 3vw, 16px);
+  padding: clamp(1.25rem, 4vw, 1.75rem);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -230,7 +235,7 @@ section.visible {
 .summary-text {
   line-height: 1.75;
   color: var(--text-muted);
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
 }
 
 /* Timeline */
@@ -379,17 +384,21 @@ section.visible {
 
 .project-video-wrap {
   margin: 1rem 0;
-  border-radius: 12px;
+  border-radius: clamp(8px, 2vw, 12px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(0, 0, 0, 0.3);
+  max-width: min(560px, 100%);
+  width: 100%;
 }
 
 .project-video {
   display: block;
   width: 100%;
-  max-width: 560px;
-  max-height: 320px;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 .project-link {
@@ -408,10 +417,12 @@ section.visible {
 }
 
 .tech-stack {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
   font-family: 'JetBrains Mono', monospace;
   color: var(--accent-cyan);
   opacity: 0.9;
+  word-break: break-word;
+  line-height: 1.5;
 }
 
 /* Footer */
@@ -419,17 +430,70 @@ section.visible {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 2rem;
+  padding: clamp(1.25rem, 4vw, 2rem) var(--container-padding);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
+/* Responsive: tablet and below */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 0.75rem;
+  }
+  .timeline-item,
+  .exp-card {
+    padding-left: 1rem;
+  }
+  .project-card h3 {
+    font-size: clamp(1.05rem, 4vw, 1.2rem);
+  }
+}
+
+/* Responsive: mobile */
 @media (max-width: 640px) {
   .nav-links {
     display: none;
   }
   .hero {
-    padding: 5rem 1rem 3rem;
+    padding-top: clamp(4rem, 15vw, 5rem);
+  }
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+  .section.card,
+  .project-card,
+  .exp-card {
+    padding: 1.25rem;
+  }
+  .skills-wrap {
+    gap: 0.5rem;
+  }
+  .skill-tag {
+    padding: 0.4rem 0.85rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+  }
+}
+
+/* Responsive: small phones */
+@media (max-width: 380px) {
+  .hero-langs {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-langs span {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Touch: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  section,
+  .skill-tag,
+  .scroll-arrow {
+    animation: none;
+    transition-duration: 0.01ms;
   }
 }
