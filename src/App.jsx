@@ -94,7 +94,7 @@ function App() {
               <p>The Open University of Israel</p>
             </div>
             <div className="timeline-item">
-              <span className="timeline-date">Sep 2025 – Present</span>
+              <span className="timeline-date">Sep 2025 – Dec 2025</span>
               <h3>Full Stack Development with AI</h3>
               <p>LOTUS Women's Hi-Tech Hub</p>
             </div>
@@ -185,7 +185,7 @@ function App() {
                 View project →
               </a>
               <div className="tech-stack">
-                React · Tailwind · Node.js/Express · PostgreSQL · Vercel · Railway · Supabase
+                React · Tailwind · Node.js/Express · Production · Vercel · Railway · Supabase
               </div>
             </article>
             <article className="project-card">
