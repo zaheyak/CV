@@ -603,16 +603,17 @@ section.visible {
   width: 48px;
   height: 48px;
   padding: 0;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(92, 64, 51, 0.92);
+  border: 1px solid rgba(107, 83, 68, 0.8);
   border-radius: 50%;
-  color: #fff;
+  color: #f5f0e8;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(107, 83, 68, 0.95);
   transform: scale(1.05);
 }
 
@@ -628,12 +629,13 @@ section.visible {
   width: 56px;
   height: 56px;
   padding: 0;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(92, 64, 51, 0.92);
+  border: 1px solid rgba(107, 83, 68, 0.8);
   border-radius: 50%;
-  color: #fff;
+  color: #f5f0e8;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .lightbox-prev {
@@ -646,7 +648,7 @@ section.visible {
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(107, 83, 68, 0.95);
   transform: translateY(-50%) scale(1.08);
 }
 
