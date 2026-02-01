@@ -32,6 +32,28 @@ function App() {
 
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
 
+  const PDF_URL = '/Zaheya%20Kadmany%20CV.pdf'
+  const PDF_FILENAME = 'Zaheya-Kadmany-CV.pdf'
+
+  const handleDownloadPdf = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await fetch(PDF_URL)
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = PDF_FILENAME
+      a.style.display = 'none'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    } catch {
+      window.open(PDF_URL, '_blank')
+    }
+  }
+
   const openLightbox = (index) => {
     setLightboxIndex(index)
     setLightboxOpen(true)
@@ -148,10 +170,10 @@ function App() {
           <p className="hero-subtitle hero-subtitle-muted">
             Honors Graduate · Technion
           </p>
-          <a
-            href="/Zaheya%20Kadmany%20CV.pdf"
-            download="Zaheya-Kadmany-CV.pdf"
+          <button
+            type="button"
             className="hero-download-btn"
+            onClick={handleDownloadPdf}
             aria-label="Download CV as PDF"
           >
             <span className="hero-download-icon" aria-hidden>
@@ -162,6 +184,14 @@ function App() {
               </svg>
             </span>
             Download CV (PDF)
+          </button>
+          <a
+            href={PDF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-download-fallback"
+          >
+            Open PDF in new tab
           </a>
           <div className="hero-langs">
             <span>English</span>

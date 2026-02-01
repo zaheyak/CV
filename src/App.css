@@ -226,6 +226,21 @@
   justify-content: center;
 }
 
+.hero-download-fallback {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  opacity: 0.9;
+  transition: color 0.2s;
+}
+
+.hero-download-fallback:hover {
+  color: var(--accent-cyan);
+}
+
 .hero-langs {
   display: flex;
   flex-wrap: wrap;
@@ -796,6 +811,14 @@ section.visible {
 
 [data-theme="light"] .hero-download-btn:hover {
   box-shadow: 0 6px 28px rgba(92, 64, 51, 0.4);
+}
+
+[data-theme="light"] .hero-download-fallback {
+  color: #6b5344;
+}
+
+[data-theme="light"] .hero-download-fallback:hover {
+  color: #5c4033;
 }
 
 [data-theme="light"] .hero-badge {
