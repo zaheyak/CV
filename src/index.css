@@ -13,8 +13,23 @@
   --accent-pink: #ec4899;
   --text-primary: #f8fafc;
   --text-muted: #94a3b8;
+  --nav-bg: rgba(10, 10, 15, 0.8);
+  --nav-border: rgba(255, 255, 255, 0.06);
+  --grid-line: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.06);
   --container-padding: clamp(1rem, 4vw, 2rem);
   --section-gap: clamp(2rem, 5vw, 4rem);
+}
+
+[data-theme="light"] {
+  --bg-dark: #f5f0e8;
+  --bg-card: #fdfbf7;
+  --text-primary: #3d2c29;
+  --text-muted: #6b5344;
+  --nav-bg: rgba(253, 251, 247, 0.95);
+  --nav-border: rgba(107, 83, 68, 0.15);
+  --grid-line: rgba(107, 83, 68, 0.08);
+  --card-border: rgba(139, 115, 85, 0.2);
 }
 
 html {
@@ -28,6 +43,7 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {
