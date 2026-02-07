@@ -241,6 +241,45 @@
   color: var(--accent-cyan);
 }
 
+.hero-pdf-error {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #f87171;
+  text-align: center;
+}
+
+[data-theme="light"] .hero-pdf-error {
+  color: #b91c1c;
+}
+
+.hero-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.hero-link:hover {
+  color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(34, 211, 238, 0.3);
+  transform: scale(1.08);
+}
+
 .hero-langs {
   display: flex;
   flex-wrap: wrap;
@@ -821,6 +860,18 @@ section.visible {
 
 [data-theme="light"] .hero-download-fallback:hover {
   color: #5c4033;
+}
+
+[data-theme="light"] .hero-link {
+  color: #6b5344;
+  border-color: rgba(107, 83, 68, 0.25);
+  background: rgba(139, 115, 85, 0.12);
+}
+
+[data-theme="light"] .hero-link:hover {
+  color: #5c4033;
+  background: rgba(139, 115, 85, 0.22);
+  border-color: rgba(92, 64, 51, 0.4);
 }
 
 [data-theme="light"] .hero-badge {
